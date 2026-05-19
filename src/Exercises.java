@@ -35,13 +35,12 @@ public class Exercises {
      * @return the new head of the linked list
      */
     public static ListNode prepend(ListNode head, int toAdd) {
-        ListNode current= head;
         ListNode newNode= new ListNode(toAdd);
-        while (current!=null) {
-            current=current.next;
+        if(head==null){
+            return newNode;
         }
-        current.next=newNode;
-        return head;
+        newNode.next=head;
+       return newNode;
     }
 
     /**
