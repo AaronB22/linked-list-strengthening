@@ -129,6 +129,9 @@ public class Exercises {
                 current.next=current.next.next;
                 return head;
             }
+            if(current.data==lowest){
+                head=head.next;
+            }
             current=current.next;
         }
         return head;
@@ -155,7 +158,23 @@ public class Exercises {
      * @return whether the values in bigList are twice the values in smallList
      */
     public static boolean isDoubled(ListNode smallList, ListNode bigList) {
-        return false;
+        if(smallList==null && bigList==null){
+            return true;
+        }
+        if(smallList==null||bigList==null){
+            return false;
+        }
+        while (smallList!=null) {
+            if(smallList.data*2!=bigList.data){
+                return false;
+            }
+            if((smallList.next==null&&bigList.next!=null)||(smallList.next!=null&&bigList.next==null)){
+                return false;
+            }
+            smallList=smallList.next;
+            bigList=bigList.next;
+        }
+        return true;
     }
 
     /**
